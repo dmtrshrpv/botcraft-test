@@ -23,22 +23,22 @@
                     },
                     colors: {
                         cloud: {
-                            50: '#fafcfd',  /* Максимально светлый, почти белый с каплей синего */
-                            100: '#f0f4f8', /* Светло-серый для выделения блоков */
-                            200: '#e1e8f0', /* Бордеры */
+                            50: '#fafcfd',
+                            100: '#f0f4f8',
+                            200: '#e1e8f0',
                         },
                         ink: {
                             400: '#94a3b8',
-                            600: '#475569', /* Основной текст */
-                            900: '#0f172a', /* Заголовки */
+                            600: '#475569',
+                            900: '#0f172a',
                         },
                         airyblue: {
                             50: '#f0f7ff',
                             100: '#e0effe',
                             200: '#bae0ff',
-                            500: '#5c80a1', /* Основной акцент (кнопки, выделения) */
-                            600: '#4a6b8c', /* Ховер кнопок */
-                            900: '#1a2736', /* Темный акцент (центральная карточка) */
+                            500: '#5c80a1',
+                            600: '#4a6b8c',
+                            900: '#1a2736',
                         }
                     }
                 }
@@ -47,29 +47,20 @@
     </script>
 
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            background-color: #fafcfd; 
-            color: #475569; 
-        }
+        html { scroll-behavior: smooth; }
+        body { background-color: #fafcfd; color: #475569; }
 
         .fade-in-up {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-in-up.visible { opacity: 1; transform: translateY(0); }
 
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
 
         .btn-primary {
             background-color: #5c80a1;
@@ -77,24 +68,20 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px -1px rgba(92, 128, 161, 0.2), 0 2px 4px -1px rgba(92, 128, 161, 0.1);
         }
-        
         .btn-primary:hover {
             background-color: #4a6b8c;
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgba(92, 128, 161, 0.3), 0 4px 6px -2px rgba(92, 128, 161, 0.15);
         }
-
         .btn-outline {
             border: 2px solid #5c80a1;
             color: #5c80a1;
             transition: all 0.3s ease;
         }
-
         .btn-outline:hover {
             background-color: #f0f7ff;
             transform: translateY(-2px);
         }
-
         .bg-blob {
             position: absolute;
             border-radius: 50%;
@@ -106,17 +93,16 @@
 </head>
 <body class="overflow-x-hidden antialiased">
 
-    <!-- Декоративные фоновые элементы -->
     <div class="bg-blob bg-airyblue-200 w-96 h-96 top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
     <div class="bg-blob bg-cloud-200 w-[500px] h-[500px] top-40 right-0 translate-x-1/3"></div>
 
     <!-- Навигация -->
     <nav class="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-cloud-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
+            <div class="flex justify-between h-16 md:h-20 items-center">
                 <div class="flex-shrink-0 flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-full bg-airyblue-500 flex items-center justify-center text-white font-bold">Д</div>
-                    <span class="font-semibold text-xl tracking-tight text-ink-900">Дмитрий Шарыпов</span>
+                    <div class="w-8 h-8 rounded-full bg-airyblue-500 flex items-center justify-center text-white font-bold text-sm md:text-base">Д</div>
+                    <span class="font-semibold text-lg md:text-xl tracking-tight text-ink-900 truncate max-w-[200px] md:max-w-none">Дмитрий Шарыпов</span>
                 </div>
                 <div class="hidden md:flex space-x-8">
                     <a href="#about" class="text-ink-600 hover:text-airyblue-600 transition-colors">Обо мне</a>
@@ -124,7 +110,7 @@
                     <a href="#pricing" class="text-ink-600 hover:text-airyblue-600 transition-colors">Услуги</a>
                 </div>
                 <div>
-                    <a href="#contact" class="hidden md:inline-flex btn-primary px-5 py-2.5 rounded-full font-medium text-sm">
+                    <a href="#contact" class="hidden md:inline-flex btn-primary px-4 md:px-5 py-2 md:py-2.5 rounded-full font-medium text-sm">
                         Связаться
                     </a>
                 </div>
@@ -133,231 +119,221 @@
     </nav>
 
     <!-- Hero Секция -->
-    <section class="pt-32 pb-20 md:pt-48 md:pb-32 px-4 relative">
+    <section class="pt-28 pb-16 md:pt-48 md:pb-32 px-4 relative">
         <div class="max-w-4xl mx-auto text-center fade-in-up">
-            <span class="inline-block py-1 px-3 rounded-full bg-airyblue-50 text-airyblue-600 text-sm font-medium mb-6 border border-airyblue-100">
+            <span class="inline-block py-1 px-3 rounded-full bg-airyblue-50 text-airyblue-600 text-xs md:text-sm font-medium mb-4 md:mb-6 border border-airyblue-100">
                 Контент-ассистент для психологов 🎯
             </span>
-            <h1 class="text-4xl md:text-6xl font-bold text-ink-900 tracking-tight leading-tight mb-6">
-                Ведите терапию,<br/> <span class="text-airyblue-500 text-transparent bg-clip-text bg-gradient-to-r from-airyblue-500 to-airyblue-600">а не блог</span>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 tracking-tight leading-tight mb-4 md:mb-6">
+                Ведите терапию,<br class="hidden sm:block"/> <span class="text-airyblue-500 text-transparent bg-clip-text bg-gradient-to-r from-airyblue-500 to-airyblue-600">а не блог</span>
             </h1>
-            <p class="text-lg md:text-xl text-ink-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Вы даете мне суть — я выдаю готовый контент, который повышает ваш чек. Вам больше не нужно касаться клавиатуры: просто говорите, а я сделаю всё остальное 🎙️
+            <p class="text-base sm:text-lg md:text-xl text-ink-600 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed">
+                Я освобождаю ваше время для практики. Вам больше не нужно касаться клавиатуры — просто говорите, а я сделаю всё остальное.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#contact" class="btn-primary px-8 py-4 rounded-full font-medium text-lg text-center">
+            <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+                <a href="#contact" class="btn-primary px-6 py-3.5 md:px-8 md:py-4 rounded-full font-medium text-base md:text-lg text-center">
                     Бесплатный тестовый пост 🎁
                 </a>
-                <a href="#pricing" class="btn-outline px-8 py-4 rounded-full font-medium text-lg text-center bg-white">
+                <a href="#pricing" class="btn-outline px-6 py-3.5 md:px-8 md:py-4 rounded-full font-medium text-base md:text-lg text-center bg-white">
                     Посмотреть тарифы 📋
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Блок болей / Оффер -->
-    <section id="about" class="py-20 bg-white relative z-10">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                <div class="fade-in-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-ink-900 mb-6">Я «в теме» вашей профессии 🧠</h2>
-                    <p class="text-lg text-ink-600 mb-6 leading-relaxed">
-                        Мне не нужно объяснять, что такое КПТ, гештальт или перенос. Я понимаю специфику ниши, где важны этика, бережность к читателю и экспертная точность.
-                    </p>
-                    <p class="text-lg text-ink-600 leading-relaxed">
-                        Блог перестает быть «тяжелой обязанностью». Пока вы ведете терапию, ваш контент греет аудиторию и продает ваши услуги.
-                    </p>
-                </div>
-                <div class="bg-cloud-50 rounded-3xl p-8 border border-cloud-200 relative fade-in-up delay-100">
-                    <div class="absolute -top-4 -left-4 w-12 h-12 bg-airyblue-100 rounded-full flex items-center justify-center text-2xl">⚙️</div>
-                    <h3 class="text-xl font-semibold mb-4 text-ink-900">Как это работает?</h3>
-                    <ul class="space-y-4 text-ink-600">
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-0.5">🎧</span>
-                            <span>Вы записываете аудио с мыслями (до 5 минут).</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-0.5">✍️</span>
-                            <span>Я структурирую, добавляю хуки и упаковываю в нужный формат.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-0.5">🚀</span>
-                            <span>Вы получаете готовый контент, который продает.</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <!-- Блок позиционирования (Обо мне) -->
+    <section id="about" class="py-16 md:py-20 bg-white relative z-10 border-t border-cloud-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-up">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-airyblue-50 text-airyblue-500 mb-6 text-2xl">🧠</div>
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-ink-900 mb-6 leading-snug">
+                «Я в теме: вам не нужно объяснять мне, что такое КПТ или почему важна личная терапия»
+            </h2>
+            <p class="text-lg md:text-xl text-ink-600 leading-relaxed max-w-3xl mx-auto">
+                Вы даете мне суть — я выдаю готовый контент, который повышает ваш чек и лояльность аудитории.
+            </p>
         </div>
     </section>
 
     <!-- Преимущества -->
-    <section id="benefits" class="py-24 bg-cloud-50">
+    <section id="benefits" class="py-16 md:py-24 bg-cloud-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 fade-in-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-ink-900 mb-4">В чем ваша выгода? 💡</h2>
-                <p class="text-ink-600 max-w-2xl mx-auto">Готовый контент от «человека в теме» эффективнее услуг обычных SMM-агентств.</p>
+            <div class="text-center mb-12 md:mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-ink-900 mb-4">Почему этот формат идеален для психолога?</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Карточка 1 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-cloud-200 hover:shadow-md transition-shadow fade-in-up">
-                    <div class="w-14 h-14 bg-airyblue-50 rounded-2xl flex items-center justify-center text-2xl mb-6">
-                        🔋
-                    </div>
-                    <h3 class="text-xl font-bold text-ink-900 mb-3">Профилактика выгорания</h3>
-                    <p class="text-ink-600 leading-relaxed">
-                        Вы остаетесь терапевтом, а я становлюсь вашим медиа-отделом. Освободите ум от мыслей «что сегодня выложить».
+            <!-- Сетка 5 элементов (3 сверху, 2 по центру снизу) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                
+                <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-cloud-200 hover:shadow-md transition-shadow fade-in-up">
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-airyblue-50 rounded-2xl flex items-center justify-center text-xl md:text-2xl mb-5 md:mb-6">⏱️</div>
+                    <h3 class="text-lg md:text-xl font-bold text-ink-900 mb-2 md:mb-3">Экономия бюджета и времени</h3>
+                    <p class="text-sm md:text-base text-ink-600 leading-relaxed">
+                        Вам не нужно нанимать SMM-менеджера или дорогого таргетолога. Вы покупаете готовый экспертный контент, созданный лично под вас, который обходится дешевле, а работает эффективнее, так как создан «человеком в теме».
                     </p>
                 </div>
 
-                <!-- Карточка 2 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-cloud-200 hover:shadow-md transition-shadow fade-in-up delay-100">
-                    <div class="w-14 h-14 bg-airyblue-50 rounded-2xl flex items-center justify-center text-2xl mb-6">
-                        🗣️
-                    </div>
-                    <h3 class="text-xl font-bold text-ink-900 mb-3">Понятный язык</h3>
-                    <p class="text-ink-600 leading-relaxed">
-                        Перевожу сложные термины в простые смыслы, полностью сохраняя вашу научную глубину, профессионализм и этику.
+                <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-cloud-200 hover:shadow-md transition-shadow fade-in-up delay-100">
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-airyblue-50 rounded-2xl flex items-center justify-center text-xl md:text-2xl mb-5 md:mb-6">🔋</div>
+                    <h3 class="text-lg md:text-xl font-bold text-ink-900 mb-2 md:mb-3">Профилактика выгорания</h3>
+                    <p class="text-sm md:text-base text-ink-600 leading-relaxed">
+                        Больше не нужно заставлять себя «быть блогером» после тяжелого рабочего дня. Вы остаетесь терапевтом, а я становлюсь вашим медиа-отделом.
                     </p>
                 </div>
 
-                <!-- Карточка 3 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-cloud-200 hover:shadow-md transition-shadow fade-in-up delay-200">
-                    <div class="w-14 h-14 bg-airyblue-50 rounded-2xl flex items-center justify-center text-2xl mb-6">
-                        ⏳
-                    </div>
-                    <h3 class="text-xl font-bold text-ink-900 mb-3">Экономия времени</h3>
-                    <p class="text-ink-600 leading-relaxed">
-                        Делегирование освобождает вам более 20 часов в месяц. Регулярный контент выходит даже при полной записи клиентов.
+                <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-cloud-200 hover:shadow-md transition-shadow fade-in-up delay-200">
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-airyblue-50 rounded-2xl flex items-center justify-center text-xl md:text-2xl mb-5 md:mb-6">🗣️</div>
+                    <h3 class="text-lg md:text-xl font-bold text-ink-900 mb-2 md:mb-3">Сложное — простым языком</h3>
+                    <p class="text-sm md:text-base text-ink-600 leading-relaxed">
+                        Психология наполнена терминами. Я помогаю перевести их в формат, который понятен потенциальному клиенту, сохраняя вашу научную глубину и этику.
                     </p>
                 </div>
+
+                <!-- 2 элемента по центру на больших экранах -->
+                <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-cloud-200 hover:shadow-md transition-shadow fade-in-up lg:col-start-1 lg:col-end-3 xl:col-start-auto xl:col-end-auto delay-300 xl:translate-x-1/2">
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-airyblue-50 rounded-2xl flex items-center justify-center text-xl md:text-2xl mb-5 md:mb-6">🎙️</div>
+                    <h3 class="text-lg md:text-xl font-bold text-ink-900 mb-2 md:mb-3">Эффект присутствия</h3>
+                    <p class="text-sm md:text-base text-ink-600 leading-relaxed">
+                        Вы ведете блог своим голосом. Аудитория слышит ваши мысли в постах, привыкает к вашей подаче и выбирает вас как своего специалиста еще до первой сессии.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-cloud-200 hover:shadow-md transition-shadow fade-in-up lg:col-start-2 lg:col-end-4 xl:col-start-auto xl:col-end-auto delay-400 xl:translate-x-1/2">
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-airyblue-50 rounded-2xl flex items-center justify-center text-xl md:text-2xl mb-5 md:mb-6">⏳</div>
+                    <h3 class="text-lg md:text-xl font-bold text-ink-900 mb-2 md:mb-3">Освобождение 20+ часов в месяц</h3>
+                    <p class="text-sm md:text-base text-ink-600 leading-relaxed">
+                        Это время вы можете потратить на личную терапию, супервизию или дополнительные консультации, которые окупят мои услуги в первый же день.
+                    </p>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Тарифы -->
-    <section id="pricing" class="py-24 bg-white">
+    <section id="pricing" class="py-16 md:py-24 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 fade-in-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-ink-900 mb-4">Форматы работы 💼</h2>
-                <p class="text-ink-600 max-w-2xl mx-auto">Выберите пакет, который закроет ваши текущие задачи.</p>
+            <div class="text-center mb-12 md:mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-ink-900 mb-4">Форматы работы</h2>
+                <p class="text-ink-600 max-w-2xl mx-auto text-sm md:text-base">Контент-ассистент, который оформляет и пишет за вас</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
                 
                 <!-- Тариф 1 -->
-                <div class="flex flex-col bg-white border border-cloud-200 rounded-3xl p-8 hover:border-airyblue-300 transition-colors fade-in-up">
-                    <div class="mb-6">
+                <div class="flex flex-col bg-white border border-cloud-200 rounded-3xl p-6 md:p-8 hover:border-airyblue-300 transition-colors fade-in-up">
+                    <div class="mb-6 border-b border-cloud-100 pb-6">
                         <span class="inline-block py-1 px-3 rounded-full bg-cloud-100 text-ink-600 text-xs font-bold uppercase tracking-wider mb-4">Пакет 1 📱</span>
-                        <h3 class="text-2xl font-bold text-ink-900 mb-2">«Карусели»</h3>
-                        <p class="text-airyblue-600 font-medium mb-4">Визуальный магнит</p>
-                        <div class="text-3xl font-bold text-ink-900 mb-1">10 000 ₸</div>
-                        <p class="text-sm text-ink-400">+ 5 000 ₸ адаптация под Stories</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-ink-900 mb-2">«Карусели»</h3>
+                        <p class="text-airyblue-600 font-medium mb-4 text-sm">Визуальный магнит</p>
+                        <div class="text-2xl md:text-3xl font-bold text-ink-900 mb-1">10 000 ₸</div>
+                        <p class="text-xs text-ink-400">за пакет в 10 каруселей (+ 5 000 ₸ адаптация под Stories)</p>
                     </div>
-                    <div class="flex-grow">
-                        <p class="text-sm text-ink-600 mb-4"><strong>Как работаем:</strong> От вас только тема — с меня структура, наполнение и дизайн.</p>
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-start text-sm text-ink-600">
-                                <span class="text-airyblue-500 mr-2 font-bold">✓</span>
-                                <span>10 экспертных каруселей (до 9 слайдов)</span>
-                            </li>
-                            <li class="flex items-start text-sm text-ink-600">
-                                <span class="text-airyblue-500 mr-2 font-bold">✓</span>
-                                <span>Единый визуальный стиль</span>
-                            </li>
-                            <li class="flex items-start text-sm text-ink-600">
-                                <span class="text-airyblue-500 mr-2 font-bold">✓</span>
-                                <span>Дорогой профиль и рост сохранений без вложений</span>
-                            </li>
-                        </ul>
+                    <div class="flex-grow space-y-4 mb-8">
+                        <p class="text-sm text-ink-600">Ваша экспертиза в самом сохраняемом формате Instagram.</p>
+                        
+                        <div>
+                            <span class="block text-xs font-bold text-ink-900 uppercase tracking-wide mb-1">Как работаем:</span>
+                            <p class="text-sm text-ink-600">От вас нужна только тема и 2–3 предложения описания. На основе этого я сам составляю структуру, наполнение и дизайн карусели.</p>
+                        </div>
+                        
+                        <div>
+                            <span class="block text-xs font-bold text-ink-900 uppercase tracking-wide mb-1">Что входит:</span>
+                            <p class="text-sm text-ink-600">10 экспертных каруселей (до 9 слайдов каждая) в едином стиле.</p>
+                        </div>
+
+                        <div>
+                            <span class="block text-xs font-bold text-ink-900 uppercase tracking-wide mb-1">Что это даст:</span>
+                            <p class="text-sm text-ink-600">Профиль выглядит дорого и системно. Карусели алгоритмически живут дольше обычных постов, обеспечивая стабильный приток новых людей без вложений в рекламу.</p>
+                        </div>
                     </div>
-                    <a href="https://t.me/dsharypov" target="_blank" class="w-full btn-outline py-3 rounded-xl font-medium text-center mt-auto">Выбрать пакет</a>
+                    <a href="https://t.me/dsharypov" target="_blank" class="w-full btn-outline py-3 rounded-xl font-medium text-center mt-auto text-sm md:text-base">Выбрать пакет</a>
                 </div>
 
                 <!-- Тариф 2 (Акцентный) -->
-                <div class="flex flex-col bg-airyblue-900 rounded-3xl p-8 transform md:-translate-y-4 shadow-xl fade-in-up delay-100 relative overflow-hidden">
+                <div class="flex flex-col bg-airyblue-900 rounded-3xl p-6 md:p-8 transform lg:-translate-y-4 shadow-xl fade-in-up delay-100 relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-airyblue-600 rounded-bl-full opacity-20"></div>
                     
-                    <div class="mb-6 relative z-10">
+                    <div class="mb-6 border-b border-airyblue-600/30 pb-6 relative z-10">
                         <span class="inline-block py-1 px-3 rounded-full bg-airyblue-600 text-white text-xs font-bold uppercase tracking-wider mb-4">Оптимальный формат ⭐</span>
-                        <h3 class="text-2xl font-bold text-white mb-2">«Голосовое в пост»</h3>
-                        <p class="text-airyblue-200 font-medium mb-4">Контент без клавиатуры</p>
-                        <div class="text-3xl font-bold text-white mb-1">15 000 ₸</div>
-                        <p class="text-sm text-airyblue-200/70">Первый пост бесплатно для теста</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">«Голосовое в пост»</h3>
+                        <p class="text-airyblue-200 font-medium mb-4 text-sm">Контент без клавиатуры</p>
+                        <div class="text-2xl md:text-3xl font-bold text-white mb-1">15 000 ₸</div>
+                        <p class="text-xs text-airyblue-200/70">за пакет в 10 постов (Первый бесплатно)</p>
                     </div>
-                    <div class="flex-grow relative z-10">
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-start text-sm text-cloud-50">
-                                <span class="text-airyblue-200 mr-2 font-bold">✓</span>
-                                <span>Переработка 10 аудио (до 7 минут)</span>
-                            </li>
-                            <li class="flex items-start text-sm text-cloud-50">
-                                <span class="text-airyblue-200 mr-2 font-bold">✓</span>
-                                <span>Трансформация в посты или статьи</span>
-                            </li>
-                            <li class="flex items-start text-sm text-cloud-50">
-                                <span class="text-airyblue-200 mr-2 font-bold">✓</span>
-                                <span>Прогрев аудитории к записи на сессии</span>
-                            </li>
-                        </ul>
+                    <div class="flex-grow space-y-4 mb-8 relative z-10">
+                        <p class="text-sm text-cloud-50">Для тех, кто хочет вести блог, не отвлекаясь от терапии.</p>
+                        
+                        <div>
+                            <span class="block text-xs font-bold text-airyblue-200 uppercase tracking-wide mb-1">Что входит:</span>
+                            <p class="text-sm text-cloud-50">Переработка 10 ваших аудио (до 7 минут) в 10 структурированных постов или статей.</p>
+                        </div>
+
+                        <div>
+                            <span class="block text-xs font-bold text-airyblue-200 uppercase tracking-wide mb-1">Что это даст:</span>
+                            <p class="text-sm text-cloud-50/90 leading-relaxed">
+                                Вы записываете мысли на ходу — я превращаю их в готовый пост. Контент выходит вовремя, даже если у вас полная запись. Вы не тратите часы на рерайт. Тексты получаются живыми (основа — ваша прямая речь), выстроенными в четкую логику воронки.
+                            </p>
+                        </div>
                     </div>
-                    <a href="https://t.me/dsharypov" target="_blank" class="w-full bg-white text-airyblue-900 py-3 rounded-xl font-bold text-center mt-auto hover:bg-cloud-50 transition-colors relative z-10">Начать бесплатно</a>
+                    <a href="https://t.me/dsharypov" target="_blank" class="w-full bg-white text-airyblue-900 py-3 rounded-xl font-bold text-center mt-auto hover:bg-cloud-50 transition-colors relative z-10 text-sm md:text-base">Начать бесплатно</a>
                 </div>
 
                 <!-- Тариф 3 -->
-                <div class="flex flex-col bg-white border border-cloud-200 rounded-3xl p-8 hover:border-airyblue-300 transition-colors fade-in-up delay-200">
-                    <div class="mb-6">
+                <div class="flex flex-col bg-white border border-cloud-200 rounded-3xl p-6 md:p-8 hover:border-airyblue-300 transition-colors fade-in-up delay-200">
+                    <div class="mb-6 border-b border-cloud-100 pb-6">
                         <span class="inline-block py-1 px-3 rounded-full bg-cloud-100 text-ink-600 text-xs font-bold uppercase tracking-wider mb-4">Пакет 3 🎬</span>
-                        <h3 class="text-2xl font-bold text-ink-900 mb-2">«Режиссер Reels»</h3>
-                        <p class="text-airyblue-600 font-medium mb-4">Готовый план съемок</p>
-                        <div class="text-3xl font-bold text-ink-900 mb-1">25 000 ₸</div>
-                        <p class="text-sm text-transparent select-none">.</p> <!-- Spacer -->
+                        <h3 class="text-xl md:text-2xl font-bold text-ink-900 mb-2">«Режиссер Reels»</h3>
+                        <p class="text-airyblue-600 font-medium mb-4 text-sm">Готовый план съемок</p>
+                        <div class="text-2xl md:text-3xl font-bold text-ink-900 mb-1">25 000 ₸</div>
+                        <p class="text-xs text-ink-400">за 10 детально проработанных сценариев</p>
                     </div>
-                    <div class="flex-grow">
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-start text-sm text-ink-600">
-                                <span class="text-airyblue-500 mr-2 font-bold">✓</span>
-                                <span>10 детальных сценариев</span>
-                            </li>
-                            <li class="flex items-start text-sm text-ink-600">
-                                <span class="text-airyblue-500 mr-2 font-bold">✓</span>
-                                <span>Хук, текст, интонации и раскадровка</span>
-                            </li>
-                            <li class="flex items-start text-sm text-ink-600">
-                                <span class="text-airyblue-500 mr-2 font-bold">✓</span>
-                                <span>Посекундная инструкция: как встать и сказать</span>
-                            </li>
-                            <li class="flex items-start text-sm text-ink-600">
-                                <span class="text-airyblue-500 mr-2 font-bold">✓</span>
-                                <span>Запись видео на неделю за 30 минут</span>
-                            </li>
-                        </ul>
+                    <div class="flex-grow space-y-4 mb-8">
+                        <p class="text-sm text-ink-600">Посекундная инструкция для видео, которые приносят записи.</p>
+                        
+                        <div>
+                            <span class="block text-xs font-bold text-ink-900 uppercase tracking-wide mb-1">Что входит:</span>
+                            <p class="text-sm text-ink-600">10 детальных сценариев (Хук-заголовок, основной текст, интонации и раскадровка).</p>
+                        </div>
+
+                        <div>
+                            <span class="block text-xs font-bold text-ink-900 uppercase tracking-wide mb-1">Что это даст:</span>
+                            <p class="text-sm text-ink-600 leading-relaxed">
+                                Готовая инструкция: что сказать, как встать и когда на экране должен появиться текст. Больше никакого страха перед камерой. Детальная раскадровка позволяет записать контент на неделю за 30-40 минут. Вы выглядите эмпатично и уверенно.
+                            </p>
+                        </div>
                     </div>
-                    <a href="https://t.me/dsharypov" target="_blank" class="w-full btn-outline py-3 rounded-xl font-medium text-center mt-auto">Выбрать пакет</a>
+                    <a href="https://t.me/dsharypov" target="_blank" class="w-full btn-outline py-3 rounded-xl font-medium text-center mt-auto text-sm md:text-base">Выбрать пакет</a>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- CTA / Футер -->
-    <section id="contact" class="py-24 bg-cloud-100 relative overflow-hidden">
+    <!-- Финальный блок / CTA / Футер -->
+    <section id="contact" class="py-16 md:py-24 bg-cloud-100 relative overflow-hidden">
         <div class="absolute inset-0 bg-airyblue-900 opacity-[0.02] pattern-diagonal-lines"></div>
         <div class="max-w-4xl mx-auto px-4 text-center relative z-10 fade-in-up">
-            <h2 class="text-3xl md:text-5xl font-bold text-ink-900 mb-6">Хотите проверить в деле? 🤝</h2>
-            <p class="text-lg md:text-xl text-ink-600 mb-10 leading-relaxed max-w-2xl mx-auto">
-                Пришлите мне одно аудио до 5 минут в Telegram — я <span class="font-bold border-b-2 border-airyblue-500">бесплатно</span> превращу его в структурированный экспертный пост, чтобы вы увидели, как это экономит ваши силы.
+            <div class="bg-white/80 backdrop-blur-sm p-6 md:p-10 rounded-3xl shadow-sm border border-cloud-200 mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold text-ink-900 mb-4">Ваш главный результат:</h2>
+                <p class="text-base md:text-lg text-ink-600 leading-relaxed text-left md:text-center">
+                    Блог перестает быть «тяжелой обязанностью» и становится рабочим инструментом. Пока вы ведете терапию и отдыхаете, ваш контент транслирует вашу ценность, греет аудиторию и повышает доверие к вам как к профессионалу высокого чека.
+                </p>
+            </div>
+
+            <h2 class="text-2xl md:text-4xl font-bold text-ink-900 mb-4 md:mb-6">Хотите проверить в деле? 🤝</h2>
+            <p class="text-base md:text-xl text-ink-600 mb-8 md:mb-10 leading-relaxed max-w-2xl mx-auto">
+                Пришлите мне одно аудио до 5 минут в Telegram — я <span class="font-bold border-b-2 border-airyblue-500 text-ink-900">бесплатно</span> превращу его в структурированный экспертный пост, чтобы вы увидели, как это экономит ваши силы.
             </p>
-            <a href="https://t.me/dsharypov" target="_blank" class="inline-flex items-center btn-primary px-10 py-5 rounded-full font-bold text-lg">
-                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.905-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.666 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.114.094.142.222.151.333.011.122.015.347.006.49z"/></svg>
+            <a href="https://t.me/dsharypov" target="_blank" class="inline-flex items-center justify-center w-full sm:w-auto btn-primary px-8 py-4 md:px-10 md:py-5 rounded-full font-bold text-base md:text-lg">
+                <svg class="w-5 h-5 md:w-6 md:h-6 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.905-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.666 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.114.094.142.222.151.333.011.122.015.347.006.49z"/></svg>
                 Написать в Telegram
             </a>
         </div>
     </section>
 
-    <footer class="bg-white py-8 border-t border-cloud-200">
+    <footer class="bg-white py-6 md:py-8 border-t border-cloud-200">
         <div class="max-w-6xl mx-auto px-4 text-center">
-            <p class="text-ink-400 text-sm">© 2026 Дмитрий Шарыпов. Контент-ассистент для психологов.</p>
+            <p class="text-ink-400 text-xs md:text-sm">© 2026 Дмитрий Шарыпов. Контент-ассистент для психологов.</p>
         </div>
     </footer>
 
@@ -374,7 +350,7 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); // Анимируем только один раз
+                        observer.unobserve(entry.target); 
                     }
                 });
             }, observerOptions);
